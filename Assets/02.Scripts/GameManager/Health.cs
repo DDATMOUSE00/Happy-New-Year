@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,44 +7,37 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int health;
-    [SerializeField] private Animator anim;
-
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
+    [SerializeField] private Animator _anim;
 
     private void Update()
     {
-        //TODO ÇöÀç hp¸¦ º¸¿©ÁÖ´Â ÇÔ¼öÁ¦ÀÛ
-
-        if (health <= 0)
-        {
-            IsDead();
-        }
+        //TODO í˜„ìž¬ hpë¥¼ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜ì œìž‘
     }
 
     private void IsDead()
     {
-        anim.SetBool("IsDead", true);
+        _anim.SetBool("IsDead", true);
         if (gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
         else
         {
-            // Player ¸¶À»·Î µ¹¾Æ°¡°Ô ÇÏ´Â ÄÚµå?ÇÔ¼ö? Á¦ÀÛ
+            // Player ë§ˆì„ë¡œ ëŒì•„ê°€ê²Œ í•˜ëŠ” ì½”ë“œ?í•¨ìˆ˜? ì œìž‘
         }
     }
 
     public void TakeDamage(int damage)
     {
-        if (gameObject.CompareTag("Enemy")) // ÇÃ·¹ÀÌ¾î¿¡ TakeDamage ¾Ö´Ï¸ÅÀÌ¼ÇÀÌ ÀÖÀ¸¸é Á¶°Ç»èÁ¦
+        if (gameObject.CompareTag("Enemy")) // í”Œë ˆì´ì–´ì— TakeDamage ì• ë‹ˆë§¤ì´ì…˜ì´ ìžˆìœ¼ë©´ ì¡°ê±´ì‚­ì œ
         {
-            anim.SetBool("TakeDamage", true);
+            _anim.SetBool("TakeDamage", true);
         }
-
         health -= damage;
-    }
 
+        if (health <= 0)
+        {
+            IsDead();
+        }
+    }
 }

@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyMove : MonoBehaviour
 {
-    Vector3 dirVec = Vector3.right;
+    Vector2 dirVec = Vector2.right;
     [SerializeField] private float speed;
     private int moveCount;
     private float waitTime;
@@ -41,19 +42,19 @@ public class EnemyMove : MonoBehaviour
             moveCount++;
             if (moveCount % 2 == 0)
             {
-                dirVec = Vector3.right;
+                dirVec = Vector2.right;
                 moveCount = 0;
             }
             else
             {
-                dirVec = Vector3.left;
+                dirVec = Vector2.left;
             }
             waitTime = 0;
         }
         else if (waitTime >= 3f)
         {
             _anim.SetBool("Run", false);
-            dirVec = Vector3.zero;
+            dirVec = Vector2.zero;
         }
 
     }
