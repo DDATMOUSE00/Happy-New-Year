@@ -413,7 +413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907884546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -0.3, z: 0}
+  m_LocalPosition: {x: 1.15, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -543,7 +543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067830915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.46, y: -2, z: 0}
+  m_LocalPosition: {x: 3.18, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 1522678958}
   - component: {fileID: 1522678956}
   - component: {fileID: 1522678961}
+  - component: {fileID: 1522678962}
   m_Layer: 0
   m_Name: Enemy_Goblin
   m_TagString: Untagged
@@ -753,3 +754,17 @@ MonoBehaviour:
   delay: 0.5
   hitBox: {fileID: 907884546}
   hitBoxSize: {x: 1, y: 1}
+--- !u!114 &1522678962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522678952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2de6508b66594489002c2072e98bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  _anim: {fileID: 1522678958}
