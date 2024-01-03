@@ -23,17 +23,19 @@ public class Health : MonoBehaviour
         }
         else
         {
-            // Player 마을로 돌아가게 하는 코드?함수? 제작
+            Debug.Log("나죽어~~~");
         }
     }
 
     public void TakeDamage(int damage)
     {
-        if (gameObject.CompareTag("Enemy")) // 플레이어에 TakeDamage 애니매이션이 있으면 조건삭제
-        {
-            _anim.SetBool("TakeDamage", true);
-        }
         health -= damage;
+
+        //if (gameObject.CompareTag("Enemy")) // 플레이어에 TakeDamage 애니매이션이 있으면 조건삭제
+        //{
+        //    _anim.SetBool("TakeDamage", true);
+        //}
+        
 
         if (health <= 0)
         {

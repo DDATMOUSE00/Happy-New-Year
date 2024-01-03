@@ -9,11 +9,12 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Collider2D myCollider; //본인
     private Animator _anim;
     [SerializeField] private int damage;
-    [SerializeField] private float delay = 0.5f;
+    [SerializeField] private float delay = 3f;
     private float dTime;
     private int comboAttack;
+    public bool isAttack;
 
-    public GameObject hitBox;
+    public Transform hitBox;
     public Vector2 hitBoxSize;
 
     private void Awake()
@@ -24,12 +25,11 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(hitBox.transform.position, hitBoxSize, 0);
+        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(hitBox.position, hitBoxSize, 0);
         foreach (Collider2D collider in collider2Ds)
         {
             Debug.Log(collider.tag);
-            ChangeHitBox();
-            if (collider.gameObject.CompareTag("Player") && dTime <= 0)
+            if (collider.CompareTag("Player") && dTime <= 0)
             {
                 if (collider.TryGetComponent(out Health health))
                 {
@@ -46,7 +46,7 @@ public class EnemyAttack : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(hitBox.transform.position, hitBoxSize);
+        Gizmos.DrawWireCube(hitBox.position, hitBoxSize);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -54,13 +54,9 @@ public class EnemyAttack : MonoBehaviour
         Debug.Log(collision.gameObject.tag);
     }
 
-    private void ChangeHitBox()
-    {
-        hitBox.transform.position = new Vector3(-1,0,0); 
-    }
-
     private void OnAttack()
     {
+        isAttack = true;
         if (comboAttack == 0)
         {
             _anim.SetBool("Attack1", true);
@@ -76,7 +72,8 @@ public class EnemyAttack : MonoBehaviour
 
     private void UnAttack()
     {
-        if(comboAttack == 1)
+        isAttack = false;
+        if (comboAttack == 1)
             _anim.SetBool("Attack1", false);
         else
             _anim.SetBool("Attack2", false);
