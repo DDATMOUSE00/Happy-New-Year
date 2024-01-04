@@ -10,8 +10,8 @@ public class PlayerInputController : PlayerController
     private void Awake()
     {
         _camera = Camera.main;
+        IsJumping = true;
     }
-
     public void OnMove(InputValue value)
     {
         Debug.Log("OnMove" + value.ToString());
@@ -21,11 +21,13 @@ public class PlayerInputController : PlayerController
     public void OnJump(InputValue value)
     {
         Debug.Log("OnJump" + value.ToString());
+        bool IsJumpPressed = value.isPressed;
+        IsJumping = IsJumpPressed;
         CallJumpEvent();
     }
     public void OnAttack(InputValue value)
     {
         Debug.Log("OnAttack" + value.ToString());
-        CallAttackEvent();
+        IsAttacking = value.isPressed;
     }
 }
