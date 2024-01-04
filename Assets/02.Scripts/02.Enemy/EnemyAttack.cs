@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Collider2D myCollider; //본인
     private Animator _anim;
     [SerializeField] private int damage;
-    [SerializeField] private float delay = 3f;
+    [SerializeField] private float delay = 5f;
     private float dTime;
     private int comboAttack;
     public bool isAttack;
@@ -31,15 +31,17 @@ public class EnemyAttack : MonoBehaviour
             Debug.Log(collider.tag);
             if (collider.CompareTag("Player") && dTime <= 0)
             {
+                isAttack = true;
                 if (collider.TryGetComponent(out Health health))
                 {
                     OnAttack();
                     //플레이어의 health스크립트를 가져와서 데미지를 넣어준다.
                     health.TakeDamage(damage);
+                    dTime = delay;
                 }
-                dTime = delay;
             }
         }
+        Debug.Log(dTime);
         dTime -= Time.deltaTime;
     }
 
@@ -56,7 +58,6 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnAttack()
     {
-        isAttack = true;
         if (comboAttack == 0)
         {
             _anim.SetBool("Attack1", true);
