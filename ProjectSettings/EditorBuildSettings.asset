@@ -6,6 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/01.Scenes/LHScene.unity
+    guid: 12497c51f0dd0a74b99aa80ace5361dd
+  - enabled: 1
+    path: Assets/01.Scenes/LHTestScene.unity
+    guid: 971eb27f265fa4688b7c170021dec970
+  - enabled: 1
     path: Assets/01.Scenes/02.MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: f2dab238fff2bdc418b6f5c0a9375a32, type: 2}
