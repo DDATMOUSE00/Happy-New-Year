@@ -15,32 +15,58 @@ public class EnemyMove : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Animator _anim;
 
+    public Transform closetTarget;
+
     private void Start()
     {
         enemyAttack = GetComponent<EnemyAttack>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _anim = GetComponent<Animator>();
+
+        closetTarget = GameManager.Instance.Player;
     }
 
     private void Update()
     {
-        waitTime += Time.deltaTime;
         if (!enemyAttack.isAttack)
         {
+            waitTime += Time.deltaTime;
             Move();
+        }
+        else
+        {
+            CancelMove();
         }
     }
 
     private void Move()
     {
+        _anim.SetBool("Run", true);
         _rigidbody.velocity = dirVec * speed;
-        ChangeMove();
+        if (!GameManager.Instance.isInteracting)
+        {
+            ChangeMove();
+        }
+        else
+        {
+            dirVec = closetTarget.position - transform.position;
+            if (dirVec.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            //TODO 플레이어 따라 방향회전
+            dirVec.Normalize();
+        }
+        
     }
 
     private void ChangeMove()
     {
-        _anim.SetBool("Run", true);
         if (waitTime >= 5f)
         {
             moveCount++;
@@ -59,9 +85,13 @@ public class EnemyMove : MonoBehaviour
         }
         else if (waitTime >= 3f)
         {
-            _anim.SetBool("Run", false);
-            dirVec = Vector2.zero;
+            CancelMove();
         }
 
+    }
+    private void CancelMove()
+    {
+        _anim.SetBool("Run", false);
+        dirVec = Vector2.zero;
     }
 }
