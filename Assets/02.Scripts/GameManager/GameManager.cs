@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-
     public static GameManager Instance
     {
         get
@@ -25,6 +24,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public Transform Player { get; private set; }
+    [SerializeField] private string playerTag = "Player";
+    public bool isInteracting;
+
     private void Awake()
     {
         if (_instance == null)
@@ -36,6 +39,10 @@ public class GameManager : MonoBehaviour
         {
             if (_instance != this) Destroy(this);
         }
+
+        Player = GameObject.FindGameObjectWithTag(playerTag).transform;
+
     }
 
+    
 }
