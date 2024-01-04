@@ -8,10 +8,13 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject settingMenu;
+
+    public Slider[] volumeSliders;
+    public Toggle[] optionToggle;
     
     void Start()
     {
-        
+        AudioListener.volume = 0;
     }
 
     
@@ -22,11 +25,11 @@ public class MenuManager : MonoBehaviour
 
     public void Quit()
     {
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
+    #else
         Application.Quit();
-#endif
+    #endif
     }
 
     public void MainMenu()
