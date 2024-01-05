@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPause = false;
     public GameObject pauseMenuPanel;
+    public GameObject settingPanel;
 
     void Update()
     {
@@ -40,8 +41,14 @@ public class PauseMenu : MonoBehaviour
 
     public void ToSettingMenu()
     {
-        Debug.Log("설정창입니다.");
-        // 구현 중
+        pauseMenuPanel.SetActive(false);
+        settingPanel.SetActive(true);
+    }
+
+    public void BackToPauseB()
+    {
+        settingPanel.SetActive(false);
+        pauseMenuPanel.SetActive(true);
     }
 
     public void ToMain()

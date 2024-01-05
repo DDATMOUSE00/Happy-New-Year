@@ -3,15 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public int health;
-    [SerializeField] private Animator _anim;
+
+    [SerializeField]
+    private Animator _anim;
+
+    public Slider slider;
+
+
+    private void Start()
+    {
+        SetMaxHealth(health);
+    }
 
     private void Update()
     {
         //TODO 현재 hp를 보여주는 함수제작
+        if(slider != null)
+        {
+
+            SetHealth(health);
+        }
+        
     }
 
     private void IsDead()
@@ -30,16 +47,27 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-
         //if (gameObject.CompareTag("Enemy")) // 플레이어에 TakeDamage 애니매이션이 있으면 조건삭제
         //{
         //    _anim.SetBool("TakeDamage", true);
         //}
-        
+
 
         if (health <= 0)
         {
             IsDead();
         }
+    }
+
+    public void SetMaxHealth(int health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
+        Debug.Log("나오고 있냐?");
+    }
+
+    public void SetHealth(int health)
+    {
+        slider.value = health;
     }
 }
