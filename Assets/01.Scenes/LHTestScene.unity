@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  closetTarget: {fileID: 0}
 --- !u!95 &385906706
 Animator:
   serializedVersion: 5
@@ -2145,6 +2146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 969929313}
   - component: {fileID: 969929314}
+  - component: {fileID: 969929315}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -2225,6 +2227,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &969929315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969929312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdbdc646ed6ae4dca9b523e920abe32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 969929314}
 --- !u!1 &989577811
 GameObject:
   m_ObjectHideFlags: 0
@@ -3038,6 +3053,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95b9af298d84054aa85a7d9b2ed9735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTag: Player
+  isInteracting: 0
 --- !u!4 &1993528850
 Transform:
   m_ObjectHideFlags: 0
