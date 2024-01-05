@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [System.Serializable]
@@ -22,6 +23,8 @@ public class Exp : MonoBehaviour
     public int experienceCap;
 
     public List<LevelRange> levelRanges;
+
+    public Slider expSlider;
 
     void Start()
     {
@@ -57,8 +60,15 @@ public class Exp : MonoBehaviour
             experienceCap += experienceCapIncrease;
         }
     }
-    void Update()
+
+    public void SetCapExp(int exp)
     {
-        
+        expSlider.maxValue = exp;
+        expSlider.value = exp;
+    }
+
+    public void SetExp(int exp)
+    {
+        expSlider.value = exp;
     }
 }

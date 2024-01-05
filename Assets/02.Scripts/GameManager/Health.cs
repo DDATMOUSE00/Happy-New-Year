@@ -61,9 +61,9 @@ public class Health : MonoBehaviour
 
     public void SetMaxHealth(int health)
     {
+        //Debug.Log(slider);
         slider.maxValue = health;
         slider.value = health;
-        Debug.Log("나오고 있냐?");
     }
 
     public void SetHealth(int health)
