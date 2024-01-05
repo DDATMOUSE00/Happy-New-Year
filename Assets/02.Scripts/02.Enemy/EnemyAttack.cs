@@ -29,10 +29,10 @@ public class EnemyAttack : MonoBehaviour
         foreach (Collider2D collider in collider2Ds)
         {
             Debug.Log(collider.tag);
-            if (collider.CompareTag("Player") && dTime <= 0)
+            if (collider.CompareTag("Player"))
             {
                 isAttack = true;
-                if (collider.TryGetComponent(out Health health))
+                if (collider.TryGetComponent(out Health health) && dTime <= 0)
                 {
                     OnAttack();
                     //플레이어의 health스크립트를 가져와서 데미지를 넣어준다.
@@ -40,8 +40,11 @@ public class EnemyAttack : MonoBehaviour
                     dTime = delay;
                 }
             }
+            else
+            {
+                isAttack = false;
+            }
         }
-        Debug.Log(dTime);
         dTime -= Time.deltaTime;
     }
 
@@ -68,12 +71,11 @@ public class EnemyAttack : MonoBehaviour
             _anim.SetBool("Attack2", true);
             comboAttack = 0;
         }
-        Invoke("UnAttack", 1f);
+        Invoke("UnAttack", 0.8f);
     }
 
     private void UnAttack()
     {
-        isAttack = false;
         if (comboAttack == 1)
             _anim.SetBool("Attack1", false);
         else

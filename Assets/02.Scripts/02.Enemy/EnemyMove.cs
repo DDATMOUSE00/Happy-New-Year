@@ -50,6 +50,7 @@ public class EnemyMove : MonoBehaviour
         }
         else
         {
+            //플레이어의 위치로 방향전환
             dirVec = closetTarget.position - transform.position;
             if (dirVec.x < 0)
             {
@@ -59,7 +60,6 @@ public class EnemyMove : MonoBehaviour
             {
                 transform.localScale = new Vector3(1, 1, 1);
             }
-            //TODO 플레이어 따라 방향회전
             dirVec.Normalize();
         }
         
