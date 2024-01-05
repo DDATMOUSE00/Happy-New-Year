@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +26,7 @@ public class Traps : MonoBehaviour
         }
     }
 
-    // Color º¯È¯°ú ¹«ÀûÀº ÃßÈÄ¿¡ Player ½ºÅ©¸³Æ®³ª Health ½ºÅ©¸³Æ®¿¡¼­ Ã³¸®ÇÏ°Ô ¼öÁ¤ÇÒ ¿¹Á¤ÀÔ´Ï´Ù.
+    // Color ë³€í™˜ê³¼ ë¬´ì ì€ ì¶”í›„ì— Player ìŠ¤í¬ë¦½íŠ¸ë‚˜ Health ìŠ¤í¬ë¦½íŠ¸ì—ì„œ ì²˜ë¦¬í•˜ê²Œ ìˆ˜ì •í•  ì˜ˆì •ì…ë‹ˆë‹¤.
     private IEnumerator InvincibilityTimer()
     {
         isInvincible = true;
@@ -36,7 +36,7 @@ public class Traps : MonoBehaviour
 
         isInvincible = false;
         playerSprite.color = new Color(255, 255, 255, 255);
-}
+    }
 
     private void ApplyKnockback(Transform playertransform)
     {
