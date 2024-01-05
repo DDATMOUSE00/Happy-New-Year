@@ -12,7 +12,6 @@ public class EnemyMove : MonoBehaviour
     private float waitTime;
 
     private Rigidbody2D _rigidbody;
-    private SpriteRenderer _spriteRenderer;
     private Animator _anim;
 
     public Transform closetTarget;
@@ -21,7 +20,6 @@ public class EnemyMove : MonoBehaviour
     {
         enemyAttack = GetComponent<EnemyAttack>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _anim = GetComponent<Animator>();
 
         closetTarget = GameManager.Instance.Player;
