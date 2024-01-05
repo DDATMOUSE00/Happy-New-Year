@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 303557062}
   - component: {fileID: 303557065}
   m_Layer: 6
-  m_Name: Hidenground
+  m_Name: Hiddenground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1442,7 +1442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01cb2a324a688a4fa2456a5d0094ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hidenGround: {fileID: 303557060}
+  hiddenGround: {fileID: 303557060}
 --- !u!1 &321345737
 GameObject:
   m_ObjectHideFlags: 0

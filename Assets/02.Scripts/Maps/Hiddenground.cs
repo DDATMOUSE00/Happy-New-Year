@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hidenground : MonoBehaviour
+public class Hiddenground : MonoBehaviour
 {
-    public GameObject hidenGround;
+    public GameObject hiddenGround;
 
     private void Awake()
     {
-        hidenGround.SetActive(false);
+        hiddenGround.SetActive(false);
     }
 
     // 보스가 죽었을 때, 이 발판을 true되게
