@@ -41,7 +41,7 @@ public class EnemyAttack : MonoBehaviour
                 }
             }
         }
-        Debug.Log(dTime);
+        //Debug.Log(dTime);
         dTime -= Time.deltaTime;
     }
 
