@@ -9,7 +9,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Collider2D myCollider; //본인
     private Animator _anim;
     [SerializeField] private int damage;
-    [SerializeField] private float delay = 5f;
+    [SerializeField] private int collDamage;
+    [SerializeField] private float delay;
     private float dTime;
     private int comboAttack;
     public bool isAttack;
@@ -17,7 +18,7 @@ public class EnemyAttack : MonoBehaviour
     public Transform hitBox;
     public Vector2 hitBoxSize;
 
-    private void Awake()
+    private void Start()
     {
         //damage = 몬스터 마다의 공격력
         _anim = GetComponent<Animator>();
@@ -25,27 +26,23 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(hitBox.position, hitBoxSize, 0);
-        foreach (Collider2D collider in collider2Ds)
+        Collider2D collider = Physics2D.OverlapBox(hitBox.position, hitBoxSize, 0);
+        if (collider.CompareTag("Player"))
         {
-            Debug.Log(collider.tag);
-            if (collider.CompareTag("Player"))
+            isAttack = true;
+            if (collider.TryGetComponent(out Health health) && dTime <= 0)
             {
-                isAttack = true;
-                if (collider.TryGetComponent(out Health health) && dTime <= 0)
-                {
-                    OnAttack();
-                    //플레이어의 health스크립트를 가져와서 데미지를 넣어준다.
-                    health.TakeDamage(damage);
-                    dTime = delay;
-                }
-            }
-            else
-            {
-                isAttack = false;
+                OnAttack();
+                //플레이어의 health스크립트를 가져와서 데미지를 넣어준다.
+                health.TakeDamage(damage);
+                dTime = delay;
             }
         }
-        dTime -= Time.deltaTime;
+        else
+        {
+            isAttack = false;
+        }
+    dTime -= Time.deltaTime;
     }
 
     private void OnDrawGizmos()
@@ -56,7 +53,10 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.TryGetComponent(out Health health))
+        {
+            health.TakeDamage(collDamage);
+        }
     }
 
     private void OnAttack()

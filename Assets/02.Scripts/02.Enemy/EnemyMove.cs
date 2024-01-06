@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 
 public class EnemyMove : MonoBehaviour
 {
-    [SerializeField] private Enemy enemy;
-    EnemyAttack enemyAttack;
-    Vector2 dirVec = Vector2.right;
+    private Interation interation;
+    private EnemyAttack enemyAttack;
+    private Vector2 dirVec = Vector2.right;
     [SerializeField] private float speed;
     private int moveCount;
     private float waitTime;
@@ -19,11 +19,12 @@ public class EnemyMove : MonoBehaviour
 
     private void Start()
     {
+        interation = GetComponentInChildren<Interation>();
         enemyAttack = GetComponent<EnemyAttack>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
 
-        closetTarget = GameManager.Instance.Player;
+        closetTarget = interation.Player;
     }
 
     private void Update()
@@ -43,7 +44,7 @@ public class EnemyMove : MonoBehaviour
     {
         _anim.SetBool("Run", true);
         _rigidbody.velocity = dirVec * speed;
-        if (!enemy.isInteracting)
+        if (!interation.isInteracting)
         {
             ChangeMove();
         }

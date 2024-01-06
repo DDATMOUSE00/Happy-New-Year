@@ -8,33 +8,33 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     public int health;
-
-    [SerializeField]
     private Animator _anim;
-
     public Slider slider;
 
+    private void Awake()
+    {
+        _anim = GetComponent<Animator>();
+    }
 
     private void Start()
     {
-        SetMaxHealth(health);
+        //SetMaxHealth(health);
     }
 
     private void Update()
     {
-        //TODO 현재 hp를 보여주는 함수제작
-        if(slider != null)
+        if (slider != null)
         {
 
             SetHealth(health);
         }
-        
+
     }
 
     private void IsDead()
     {
         _anim.SetBool("IsDead", true);
-        if (gameObject.CompareTag("Enemy"))
+        if (CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
@@ -47,10 +47,10 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        //if (gameObject.CompareTag("Enemy")) // 플레이어에 TakeDamage 애니매이션이 있으면 조건삭제
-        //{
-        //    _anim.SetBool("TakeDamage", true);
-        //}
+        if (CompareTag("Enemy")) // 플레이어에 TakeDamage 애니매이션이 있으면 조건삭제
+        {
+            _anim.SetBool("TakeDamage", true);
+        }
 
 
         if (health <= 0)
