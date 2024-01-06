@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b35c003f0592e44b823ef6a2f27a16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInteracting: 0
 --- !u!1 &6463500740068571207
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +160,7 @@ Transform:
   - {fileID: 3479008181729269557}
   - {fileID: 8218314655697034141}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3803108852524252720
 SpriteRenderer:
@@ -308,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5139cbbdbe30d048a8c2f4bd6010536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 7905257987179589701}
   speed: 2
   closetTarget: {fileID: 0}
 --- !u!114 &7561192602223470323

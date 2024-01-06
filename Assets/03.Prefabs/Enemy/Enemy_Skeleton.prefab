@@ -69,7 +69,7 @@ Transform:
   - {fileID: 7082700838053085907}
   - {fileID: 7203402023907664095}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &993694253788274092
 SpriteRenderer:
@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5139cbbdbe30d048a8c2f4bd6010536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 8116068636127596751}
   speed: 2
   closetTarget: {fileID: 0}
 --- !u!114 &4312429202172712133
@@ -342,3 +343,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b35c003f0592e44b823ef6a2f27a16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInteracting: 0

@@ -8,11 +8,14 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
+    public bool isInteracting;
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.Instance.isInteracting = true;
+            isInteracting = true;
         }
     }
 
@@ -20,7 +23,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.Instance.isInteracting = false;
+            isInteracting = false;
         }
     }
 }

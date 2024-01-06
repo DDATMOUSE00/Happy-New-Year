@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class EnemyMove : MonoBehaviour
 {
+    [SerializeField] private Enemy enemy;
     EnemyAttack enemyAttack;
     Vector2 dirVec = Vector2.right;
     [SerializeField] private float speed;
@@ -42,7 +43,7 @@ public class EnemyMove : MonoBehaviour
     {
         _anim.SetBool("Run", true);
         _rigidbody.velocity = dirVec * speed;
-        if (!GameManager.Instance.isInteracting)
+        if (!enemy.isInteracting)
         {
             ChangeMove();
         }

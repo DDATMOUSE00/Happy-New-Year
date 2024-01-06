@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     public Transform Player { get; private set; }
     [SerializeField] private string playerTag = "Player";
-    public bool isInteracting;
 
     private void Awake()
     {

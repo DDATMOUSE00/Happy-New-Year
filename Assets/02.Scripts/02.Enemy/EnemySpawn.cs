@@ -5,22 +5,14 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public Transform SpawnPoint;
-    public GameObject[] enemyPrefabs;
-    int enemyCount;
+    public GameObject enemyPrefabs;
+    public int enemyCount;
 
-    private void Awake()
-    {
-        
-    }
-
-    private void Spawn()
+    private void Start()
     {
         for (int i = 0; i < enemyCount; i++)
         {
-            if (enemyPrefabs[i] != null)
-            {
-                Instantiate(enemyPrefabs[i]);
-            }
+            Instantiate(enemyPrefabs);
         }
     }
 }
