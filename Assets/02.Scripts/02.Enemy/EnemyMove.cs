@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class EnemyMove : MonoBehaviour
 {
     private Interation interation;
+    private Health _health;
     private EnemyAttack enemyAttack;
     private Vector2 dirVec = Vector2.right;
     [SerializeField] private float speed;
@@ -19,6 +20,7 @@ public class EnemyMove : MonoBehaviour
 
     private void Start()
     {
+        _health = GetComponent<Health>();
         interation = GetComponentInChildren<Interation>();
         enemyAttack = GetComponent<EnemyAttack>();
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -29,7 +31,7 @@ public class EnemyMove : MonoBehaviour
 
     private void Update()
     {
-        if (!enemyAttack.isAttack)
+        if (!enemyAttack.isAttack || _health.health > 0)
         {
             waitTime += Time.deltaTime;
             Move();
@@ -52,6 +54,7 @@ public class EnemyMove : MonoBehaviour
         {
             //플레이어의 위치로 방향전환
             dirVec = closetTarget.position - transform.position;
+
             if (dirVec.x < 0)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
@@ -93,5 +96,6 @@ public class EnemyMove : MonoBehaviour
     {
         _anim.SetBool("Run", false);
         dirVec = Vector2.zero;
+        _rigidbody.velocity = dirVec * speed;
     }
 }

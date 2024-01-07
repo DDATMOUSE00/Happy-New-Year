@@ -29,11 +29,16 @@ public class Health : MonoBehaviour
             SetHealth(health);
         }
 
+        if (health <= 0)
+        {
+            _anim.SetBool("IsDead", true);
+            Invoke("IsDead",1f);
+        }
+
     }
 
     private void IsDead()
     {
-        _anim.SetBool("IsDead", true);
         if (CompareTag("Enemy"))
         {
             Destroy(gameObject);
@@ -50,12 +55,6 @@ public class Health : MonoBehaviour
         if (CompareTag("Enemy")) // 플레이어에 TakeDamage 애니매이션이 있으면 조건삭제
         {
             _anim.SetBool("TakeDamage", true);
-        }
-
-
-        if (health <= 0)
-        {
-            IsDead();
         }
     }
 

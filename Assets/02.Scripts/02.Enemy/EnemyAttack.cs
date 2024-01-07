@@ -20,7 +20,6 @@ public class EnemyAttack : MonoBehaviour
 
     private void Start()
     {
-        //damage = 몬스터 마다의 공격력
         _anim = GetComponent<Animator>();
     }
 
@@ -29,17 +28,18 @@ public class EnemyAttack : MonoBehaviour
         Collider2D collider = Physics2D.OverlapBox(hitBox.position, hitBoxSize, 0);
         if (collider.CompareTag("Player"))
         {
+            Debug.Log(collider.tag);
             isAttack = true;
             if (collider.TryGetComponent(out Health health) && dTime <= 0)
             {
                 OnAttack();
-                //플레이어의 health스크립트를 가져와서 데미지를 넣어준다.
                 health.TakeDamage(damage);
                 dTime = delay;
             }
         }
         else
         {
+            Debug.Log("z");
             isAttack = false;
         }
     dTime -= Time.deltaTime;
@@ -55,6 +55,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Health health))
         {
+            Debug.Log("asd");
             health.TakeDamage(collDamage);
         }
     }
