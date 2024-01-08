@@ -5506,6 +5506,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: 1-2
+  nextScenePlayerPosition: {x: -22, y: -5.18, z: 0}
+  nextSceneCameraCenter: {x: 23, y: 0}
+  nextSceneCameraMapSize: {x: 96, y: 35}
 --- !u!1001 &1750506133
 PrefabInstance:
   m_ObjectHideFlags: 0
