@@ -55,6 +55,7 @@ public class Health : MonoBehaviour
         if (CompareTag("Enemy")) // 플레이어에 TakeDamage 애니매이션이 있으면 조건삭제
         {
             _anim.SetBool("TakeDamage", true);
+            Invoke("EndDamage", 0.5f);
         }
     }
 
@@ -69,4 +70,12 @@ public class Health : MonoBehaviour
     {
         slider.value = health;
     }
+
+    private void EndDamage()
+    {
+        _anim.SetBool("TakeDamage", false);
+    }
+
+
+
 }
