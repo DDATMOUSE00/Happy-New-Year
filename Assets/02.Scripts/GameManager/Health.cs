@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        SetMaxHealth(health);
+        //SetMaxHealth(health);
     }
 
     private void Update()
