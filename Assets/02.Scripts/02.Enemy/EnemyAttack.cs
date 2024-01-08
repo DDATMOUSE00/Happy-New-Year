@@ -28,7 +28,6 @@ public class EnemyAttack : MonoBehaviour
         Collider2D collider = Physics2D.OverlapBox(hitBox.position, hitBoxSize, 0);
         if (collider.CompareTag("Player"))
         {
-            Debug.Log(collider.tag);
             isAttack = true;
             if (collider.TryGetComponent(out Health health) && dTime <= 0)
             {
@@ -39,7 +38,6 @@ public class EnemyAttack : MonoBehaviour
         }
         else
         {
-            Debug.Log("z");
             isAttack = false;
         }
     dTime -= Time.deltaTime;
@@ -55,7 +53,6 @@ public class EnemyAttack : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Health health))
         {
-            Debug.Log("asd");
             health.TakeDamage(collDamage);
         }
     }
