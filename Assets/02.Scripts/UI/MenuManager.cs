@@ -43,4 +43,9 @@ public class MenuManager : MonoBehaviour
         mainMenu.SetActive(false);
         settingMenu.SetActive(true);
     }
+
+    public void SettingVolume(float volume)
+    {
+        Debug.Log(volume);
+    }
 }

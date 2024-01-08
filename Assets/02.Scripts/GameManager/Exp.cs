@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 [System.Serializable]
 public class LevelRange // 레벨 범위
 {
-    public int startLevel;
+    public int startLevel;  // 시작 레벨
 
-    public int endLevel;
+    public int endLevel;    // 끝 레벨
 
-    public int experienceCapIncrease;
+    public int experienceCapIncrease;   // 경험치량 
 }
 
 
@@ -26,14 +27,23 @@ public class Exp : MonoBehaviour
 
     public Slider expSlider;
 
+    public TextMeshProUGUI lvTxt;
+
     void Start()
     {
         experienceCap = levelRanges[0].experienceCapIncrease;
+        SetCapExp(experienceCap);
+    }
+
+    private void Update()
+    {
+        lvTxt.text = "LV. " + level;
     }
 
     public void IncreaseExperience(int amount)
     {
         experience += amount;
+        SetExp(experience);
 
         LevelUpChecker();
     }
@@ -58,6 +68,7 @@ public class Exp : MonoBehaviour
             }
 
             experienceCap += experienceCapIncrease;
+            SetCapExp(experienceCap);
         }
     }
 
