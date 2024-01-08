@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - Shop
+  - Well
+  - FirstTable
+  - Table
+  - WrongTable
+  - RightTable
+  - 14Table
+  - 15Table
   layers:
   - Default
   - TransparentFX
