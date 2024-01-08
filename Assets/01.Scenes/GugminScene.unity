@@ -410,6 +410,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0443971d0b8a3cd4783c3f290ade18b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsGrounded: 0
+  IsJumping: 0
+  anim: {fileID: 0}
   GroundCheck: {fileID: 2099730413}
   GroundLayer:
     serializedVersion: 2
@@ -426,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee751d9b663976429f44a56a2cb235a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackDelay: 0.5
 --- !u!61 &283729508
 BoxCollider2D:
   m_ObjectHideFlags: 0
