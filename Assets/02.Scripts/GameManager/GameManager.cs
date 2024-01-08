@@ -23,11 +23,6 @@ public class GameManager : MonoBehaviour
             if (_instance == null) _instance = value;
         }
     }
-
-    public Transform Player { get; private set; }
-    [SerializeField] private string playerTag = "Player";
-    public bool isInteracting;
-
     private void Awake()
     {
         if (_instance == null)
@@ -39,9 +34,6 @@ public class GameManager : MonoBehaviour
         {
             if (_instance != this) Destroy(this);
         }
-
-        Player = GameObject.FindGameObjectWithTag(playerTag).transform;
-
     }
 
     
