@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     public int health;
     private Animator _anim;
     private HitPlayer HitPlayer;
-    //public Slider slider;
+    public Slider slider;
     public bool IsInvincible { get; set; }
 
     private void Awake()
@@ -21,16 +21,16 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        //SetMaxHealth(health);
+        SetMaxHealth(health);
     }
 
     private void Update()
     {
-        //if (slider != null)
-        //{
+        if (slider != null)
+        {
 
-        //    SetHealth(health);
-        //}
+            SetHealth(health);
+        }
 
         if (health <= 0)
         {
@@ -81,17 +81,17 @@ public class Health : MonoBehaviour
     //}
 
 
-    //public void SetMaxHealth(int health)
-    //{
-    //    //Debug.Log(slider);
-    //    slider.maxValue = health;
-    //    slider.value = health;
-    //}
-    
-    //public void SetHealth(int health)
-    //{
-    //    slider.value = health;
-    //}
+    public void SetMaxHealth(int health)
+    {
+        //Debug.Log(slider);
+        slider.maxValue = health;
+        slider.value = health;
+    }
+
+    public void SetHealth(int health)
+    {
+        slider.value = health;
+    }
 
     private void EndDamage()
     {
