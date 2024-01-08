@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : PlayerController
 {
     private Camera _camera;
-    
-    private void Awake()
+    public void Awake()
     {
         _camera = Camera.main;
         IsJumping = true;
+        IsAttacking = false;
     }
     public void OnMove(InputValue value)
     {
@@ -28,6 +28,8 @@ public class PlayerInputController : PlayerController
     public void OnAttack(InputValue value)
     {
         Debug.Log("OnAttack" + value.ToString());
-        IsAttacking = value.isPressed;
+        bool IsAttackPressed = value.isPressed;
+        IsAttacking = IsAttackPressed;
+        CallAttackEvent();
     }
 }
