@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spell : MonoBehaviour
 {
     private Interation _inter;
-    Vector3 pos = new Vector3 (1, 2, 0);
+    Vector3 pos = new Vector3 (1, 1, 0);
     private void Awake()
     {
         _inter = GetComponentInParent<Interation>();
