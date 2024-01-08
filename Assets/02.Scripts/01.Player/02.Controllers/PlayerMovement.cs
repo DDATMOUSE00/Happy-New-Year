@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded && !IsJumping)
         {
-            _rigidbody.AddForce(Vector2.up * 13, ForceMode2D.Impulse);
+            _rigidbody.AddForce(Vector2.up * 15, ForceMode2D.Impulse);
             IsJumping = true;
         }
         Debug.Log("OnJump2" + ToString());

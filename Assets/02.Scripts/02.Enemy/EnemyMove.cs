@@ -5,31 +5,33 @@ using UnityEngine.UIElements;
 
 public class EnemyMove : MonoBehaviour
 {
-    EnemyAttack enemyAttack;
-    Vector2 dirVec = Vector2.right;
+    private Interation interation;
+    private Health _health;
+    private EnemyAttack enemyAttack;
+    private Vector2 dirVec = Vector2.right;
     [SerializeField] private float speed;
     private int moveCount;
     private float waitTime;
 
     private Rigidbody2D _rigidbody;
-    private SpriteRenderer _spriteRenderer;
     private Animator _anim;
 
     public Transform closetTarget;
 
     private void Start()
     {
+        _health = GetComponent<Health>();
+        interation = GetComponentInChildren<Interation>();
         enemyAttack = GetComponent<EnemyAttack>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _anim = GetComponent<Animator>();
 
-        closetTarget = GameManager.Instance.Player;
+        closetTarget = interation.Player;
     }
 
     private void Update()
     {
-        if (!enemyAttack.isAttack)
+        if (!enemyAttack.isAttack || _health.health > 0)
         {
             waitTime += Time.deltaTime;
             Move();
@@ -44,13 +46,15 @@ public class EnemyMove : MonoBehaviour
     {
         _anim.SetBool("Run", true);
         _rigidbody.velocity = dirVec * speed;
-        if (!GameManager.Instance.isInteracting)
+        if (!interation.isInteracting)
         {
             ChangeMove();
         }
         else
         {
+            //플레이어의 위치로 방향전환
             dirVec = closetTarget.position - transform.position;
+
             if (dirVec.x < 0)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
@@ -59,7 +63,6 @@ public class EnemyMove : MonoBehaviour
             {
                 transform.localScale = new Vector3(1, 1, 1);
             }
-            //TODO 플레이어 따라 방향회전
             dirVec.Normalize();
         }
         
@@ -93,5 +96,6 @@ public class EnemyMove : MonoBehaviour
     {
         _anim.SetBool("Run", false);
         dirVec = Vector2.zero;
+        _rigidbody.velocity = dirVec * speed;
     }
 }

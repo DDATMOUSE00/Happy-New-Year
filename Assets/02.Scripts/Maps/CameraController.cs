@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     public Transform playerTransform;
     private Vector3 cameraPosition = new Vector3(0, 0, -10);
 
-    public float cameraMoveSpeed = 10f;
+    public float cameraMoveSpeed = 5f;
 
     public Vector2 center;
     public Vector2 mapSize;
