@@ -25,9 +25,9 @@ public class Boss : MonoBehaviour
     {
         if (_health > _bossHealth.health)
         {
-            _health -= 10f;
+            _health -= 30f;
             Pattern();
-            if (castCount == 3)
+            if (castCount >= 3)
             {
                 Cast();
             }

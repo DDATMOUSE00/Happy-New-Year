@@ -11,12 +11,14 @@ public class Health : MonoBehaviour
     private Animator _anim;
     private HitPlayer HitPlayer;
     public Slider slider;
+    private Stone Stone;
     public bool IsInvincible { get; set; }
 
     private void Awake()
     {
         _anim = GetComponentInChildren<Animator>();
         HitPlayer = GetComponent<HitPlayer>();
+        Stone = GetComponent<Stone>();
     }
 
     private void Start()
@@ -46,7 +48,7 @@ public class Health : MonoBehaviour
     {
         if (CompareTag("Enemy"))
         {
-            GameManager.Instance.experience = 1;
+            GameManager.Instance.experience = 5;
             Destroy(gameObject);
         }
         else
@@ -103,5 +105,6 @@ public class Health : MonoBehaviour
     private void EndIsInvincible()
     {
         IsInvincible = false;
+        HitPlayer.InvincibilityTimer();
     }
 }

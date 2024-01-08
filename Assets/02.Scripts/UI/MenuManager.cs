@@ -21,7 +21,7 @@ public class MenuManager : MonoBehaviour
     
     public void Play()
     {
-        SceneManager.LoadScene("LHTestScene");
+        SceneManager.LoadScene("1-0_Town");
     }
 
     public void Quit()

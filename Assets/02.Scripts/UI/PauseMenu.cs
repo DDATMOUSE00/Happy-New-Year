@@ -69,7 +69,7 @@ public class PauseMenu : MonoBehaviour
         GameOverP.SetActive(false);
         GameIsPause = false;
         Time.timeScale = 1f;
-        SceneManager.LoadScene("LHScene");
+        SceneManager.LoadScene("StartScene");
     }
 
     public void QuitGame()

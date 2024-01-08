@@ -312,6 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stone: {fileID: 3019935436647318, guid: e7b14008ec82c6e4caae2aff643cff03, type: 3}
+  spell: {fileID: 0}
   castCount: 0
 --- !u!114 &8278632504672978080
 MonoBehaviour:
@@ -344,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2de6508b66594489002c2072e98bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300
   slider: {fileID: 6717588959562110835}
 --- !u!114 &9207293078503210428
 MonoBehaviour:

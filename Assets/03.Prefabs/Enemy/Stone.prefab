@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7998849083921593774}
   m_Layer: 7
   m_Name: Stone
-  m_TagString: Enemy
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 5349181263141339337}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4266977877676489769
 SpriteRenderer:
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  slider: {fileID: 1988022528541492665}
 --- !u!114 &-7998849083921593774
 MonoBehaviour:
   m_ObjectHideFlags: 0

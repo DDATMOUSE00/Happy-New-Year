@@ -11,8 +11,8 @@ public class PlayerAttack : MonoBehaviour
     public Vector2 AttackRangeBoxSize;
     public Health Health;
 
-    static int minDamage = 10;
-    static int maxDamage = 20;
+    private int minDamage = 10;
+    private int maxDamage = 20;
     private int PlayerDMG;
     private Collider2D PlayerRangeCollider;
 
@@ -47,16 +47,19 @@ public class PlayerAttack : MonoBehaviour
     }
     private void AttackRange()
     {
-        PlayerDMG = Random.Range(minDamage, maxDamage + 1);
-        if (PlayerRangeCollider.CompareTag("Enemy") || PlayerRangeCollider.CompareTag("Stone"))
+        if (PlayerRangeCollider != null)
         {
-            if (PlayerRangeCollider.TryGetComponent(out Health health))
+            PlayerDMG = Random.Range(minDamage, maxDamage + 1);
+            if (PlayerRangeCollider.CompareTag("Enemy") || PlayerRangeCollider.CompareTag("Stone"))
             {
-                health.TakeDamage(PlayerDMG);
+                if (PlayerRangeCollider.TryGetComponent(out Health health))
+                {
+                    health.TakeDamage(PlayerDMG);
+                }
+                Debug.Log("데미지: " + PlayerDMG);
             }
-            Debug.Log("데미지: " + PlayerDMG);
         }
-        Invoke("EndAttack",0.3f);
+        Invoke("EndAttack", 0.3f);
     }
     private void OnDrawGizmos()
     {

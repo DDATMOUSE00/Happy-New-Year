@@ -2451,6 +2451,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2715123698404435829, guid: b41bf7bd1a54f0a40820a3c428b806c5, type: 3}
+      propertyPath: health
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 3792331322711806629, guid: b41bf7bd1a54f0a40820a3c428b806c5, type: 3}
       propertyPath: m_Name
       value: Boss1
@@ -2915,6 +2919,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextSceneName: 1-0_Town
   nextScenePlayerPosition: {x: 0, y: 0, z: 0}
+  nextSceneCameraCenter: {x: 0, y: 0}
+  nextSceneCameraMapSize: {x: 0, y: 0}
 --- !u!1 &802540168
 GameObject:
   m_ObjectHideFlags: 0

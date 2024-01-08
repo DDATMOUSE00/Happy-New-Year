@@ -6,7 +6,7 @@ using UnityEngine;
 public class HitPlayer : MonoBehaviour
 {
     public float knockbackForce = 3f;
-    public float invincibilityTime = 4f;
+    public float invincibilityTime = 2f;
     private Health Heal;
     public SpriteRenderer playerSprite;
 
