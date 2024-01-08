@@ -511,6 +511,7 @@ MonoBehaviour:
   pauseMenuPanel: {fileID: 552819379}
   settingPanel: {fileID: 1284775598}
   controlPanel: {fileID: 1823818634}
+  GameOverP: {fileID: 2031049920}
 --- !u!224 &125557079
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12308,6 +12309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exp: {fileID: 481243846}
   experience: 0
+  GameOverPanel: {fileID: 2031049920}
 --- !u!4 &1425799266
 Transform:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            Debug.Log("나죽어~~~");
+            GameManager.Instance.Gameover();
         }
     }
 

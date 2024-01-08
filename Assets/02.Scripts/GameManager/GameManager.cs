@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+
+    
     //private Health PlayerHealth;
     //public bool Alive = true;
     public static GameManager Instance
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     public Exp exp;
     public int experience;
+
+    public GameObject GameOverPanel;
 
     private void Awake()
     {
@@ -58,6 +62,10 @@ public class GameManager : MonoBehaviour
         experience = 0;
     }
 
+    public void Gameover()
+    {
+        GameOverPanel.SetActive(true);
+    }
 
 
 

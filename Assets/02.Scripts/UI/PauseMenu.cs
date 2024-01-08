@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuPanel;
     public GameObject settingPanel;
     public GameObject controlPanel;
+    public GameObject GameOverP;
 
     void Update()
     {
@@ -42,7 +43,8 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("LHTestScene");
+        GameOverP.SetActive(false);
+        SceneManager.LoadScene("1-0_Town");
     }
 
     public void ToSettingMenu()
@@ -64,6 +66,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ToMain()
     {
+        GameOverP.SetActive(false);
         GameIsPause = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene("LHScene");
