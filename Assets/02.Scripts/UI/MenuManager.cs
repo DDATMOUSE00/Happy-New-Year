@@ -47,7 +47,7 @@ public class MenuManager : MonoBehaviour
 
     public void SettingVolume(float volume)
     {
-        Debug.Log(volume);
+        ;
     }
 
     public void OnControlKeyB()

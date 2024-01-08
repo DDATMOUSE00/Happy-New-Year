@@ -35,7 +35,6 @@ public class PlayerAttack : MonoBehaviour
         if (_controller.IsAttacking)
         {
             StartAttack();
-            Debug.Log("공격키입력");
         }
     }
     private void StartAttack()
@@ -43,7 +42,6 @@ public class PlayerAttack : MonoBehaviour
         _controller.IsAttacking = true;
         anim.SetBool("IsAttack", true);
         AttackRange();
-        Debug.Log("공격시작");
     }
     private void AttackRange()
     {
@@ -56,7 +54,6 @@ public class PlayerAttack : MonoBehaviour
                 {
                     health.TakeDamage(PlayerDMG);
                 }
-                Debug.Log("데미지: " + PlayerDMG);
             }
         }
         Invoke("EndAttack", 0.3f);
@@ -71,6 +68,5 @@ public class PlayerAttack : MonoBehaviour
     {
         _controller.IsAttacking = false;
         anim.SetBool("IsAttack", false);
-        Debug.Log("공격끝");
     }
 }

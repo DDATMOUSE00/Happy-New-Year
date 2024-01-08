@@ -81,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
             IsJumping = true;
             anim.SetBool("IsJump", true);
         }
-        Debug.Log("OnJump2" + ToString());
     }
 
 }
