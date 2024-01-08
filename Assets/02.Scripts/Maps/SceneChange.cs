@@ -7,7 +7,6 @@ public class SceneChange : MonoBehaviour
 {
     public string nextSceneName;
 
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Entered");
