@@ -39,6 +39,11 @@ public class PauseMenu : MonoBehaviour
         GameIsPause = true;
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene("LHTestScene");
+    }
+
     public void ToSettingMenu()
     {
         pauseMenuPanel.SetActive(false);
