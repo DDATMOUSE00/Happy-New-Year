@@ -3272,6 +3272,7 @@ GameObject:
   - component: {fileID: 782781148}
   - component: {fileID: 782781150}
   - component: {fileID: 782781149}
+  - component: {fileID: 782781151}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -3391,6 +3392,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &782781151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782781147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a6229a1f53808428a7a862f26bbb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: 1-0_Town
 --- !u!1 &802540168
 GameObject:
   m_ObjectHideFlags: 0
