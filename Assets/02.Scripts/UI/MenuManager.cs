@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject settingMenu;
+    public GameObject KeyP;
 
     public Slider[] volumeSliders;
     public Toggle[] optionToggle;
@@ -47,5 +48,10 @@ public class MenuManager : MonoBehaviour
     public void SettingVolume(float volume)
     {
         Debug.Log(volume);
+    }
+
+    public void OnControlKeyB()
+    {
+        KeyP.SetActive(true);
     }
 }
