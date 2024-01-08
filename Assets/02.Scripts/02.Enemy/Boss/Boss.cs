@@ -6,7 +6,6 @@ public class Boss : MonoBehaviour
 {
     private Health _bossHealth;
     private Animator _anim;
-    private Interation _inter;
     [SerializeField] private GameObject stone;
     [SerializeField] private GameObject spell;
     float _health;
@@ -16,7 +15,6 @@ public class Boss : MonoBehaviour
     {
         _bossHealth = GetComponent<Health>();
         _anim = GetComponent<Animator>();
-        _inter = GetComponentInChildren<Interation>();
     }
     private void Start()
     {
