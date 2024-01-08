@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class SoundManager : MonoBehaviour
         else
         {
             if (_instance != this) Destroy(this);
+            if (SceneManager.GetActiveScene().buildIndex == 0) Destroy(this);
         }
     }
 }
