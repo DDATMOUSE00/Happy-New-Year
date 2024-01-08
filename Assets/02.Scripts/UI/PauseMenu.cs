@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPause = false;
     public GameObject pauseMenuPanel;
     public GameObject settingPanel;
+    public GameObject controlPanel;
 
     void Update()
     {
@@ -48,6 +49,11 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuPanel.SetActive(false);
         settingPanel.SetActive(true);
+    }
+
+    public void OpenConTrolP()
+    {
+        controlPanel.SetActive(true);
     }
 
     public void BackToPauseB()
