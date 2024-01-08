@@ -31,7 +31,12 @@ public class EnemyMove : MonoBehaviour
 
     private void Update()
     {
-        if (!enemyAttack.isAttack || _health.health > 0)
+        if(_health.health <= 0)
+        {
+            CancelMove();
+        }
+
+        if (!enemyAttack.isAttack)
         {
             waitTime += Time.deltaTime;
             Move();
