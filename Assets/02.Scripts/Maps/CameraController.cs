@@ -1,9 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
+    private static CameraController _instance;
+
+    public static CameraController Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject go = new GameObject("Camera");
+                go.AddComponent<CameraController>();
+                _instance = go.GetComponent<CameraController>();
+                DontDestroyOnLoad(go);
+            }
+            return _instance;
+        }
+        set
+        {
+            if (_instance == null) _instance = value;
+        }
+    }
+
     public Transform playerTransform;
     private Vector3 cameraPosition = new Vector3(0, 0, -10);
 
@@ -14,6 +36,20 @@ public class CameraController : MonoBehaviour
 
     private float cameraHeight;
     private float cameraWidth;
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            if (_instance != this) Destroy(this);
+            if (SceneManager.GetActiveScene().buildIndex == 0) Destroy(this);
+        }
+    }
 
     private void Start()
     {

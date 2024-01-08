@@ -9,30 +9,33 @@ public class Health : MonoBehaviour
 {
     public int health;
     private Animator _anim;
-    //public Slider slider;
+    private HitPlayer HitPlayer;
+    public Slider slider;
+    public bool IsInvincible { get; set; }
 
     private void Awake()
     {
-        _anim = GetComponent<Animator>();
+        _anim = GetComponentInChildren<Animator>();
+        HitPlayer = GetComponent<HitPlayer>();
     }
 
     private void Start()
     {
-        //SetMaxHealth(health);
+        SetMaxHealth(health);
     }
 
     private void Update()
     {
-        //if (slider != null)
-        //{
+        if (slider != null)
+        {
 
-        //    SetHealth(health);
-        //}
+            SetHealth(health);
+        }
 
         if (health <= 0)
         {
             _anim.SetBool("IsDead", true);
-            Invoke("IsDead",1f);
+            Invoke("IsDead", 1f);
         }
     }
 
@@ -52,21 +55,39 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if (CompareTag("Enemy")) // 플레이어에 TakeDamage 애니매이션이 있으면 조건삭제
+
+        if (CompareTag("Enemy"))
         {
             _anim.SetBool("TakeDamage", true);
             Invoke("EndDamage", 0.5f);
         }
 
+        if (CompareTag("Player"))
+        {
+            HitPlayer.InvincibilityTimer();
+            IsInvincible = true;
+            Invoke("EndIsInvincible", 2f);
+        }
     }
 
-    //public void SetMaxHealth(int health)
+    //넉백 이었던 것
+    //private void ApplyKnockback(Transform playertransform)
     //{
-    //    //Debug.Log(slider);
-    //    slider.maxValue = health;
-    //    slider.value = health;
+    //    Vector2 knockbackDirection = playertransform.position - transform.position;
+    //    Vector2 rotatedKnockbackDirection = Quaternion.Euler(0, 0, 180) * knockbackDirection;
+
+    //    Rigidbody2D playerRigidbody = playertransform.GetComponent<Rigidbody2D>();
+    //    playerRigidbody.AddForce(rotatedKnockbackDirection * 3f, ForceMode2D.Impulse);
     //}
-    
+
+
+    public void SetMaxHealth(int health)
+    {
+        //Debug.Log(slider);
+        slider.maxValue = health;
+        slider.value = health;
+    }
+
     public void SetHealth(int health)
     {
         slider.value = health;
@@ -75,5 +96,9 @@ public class Health : MonoBehaviour
     private void EndDamage()
     {
         _anim.SetBool("TakeDamage", false);
+    }
+    private void EndIsInvincible()
+    {
+        IsInvincible = false;
     }
 }

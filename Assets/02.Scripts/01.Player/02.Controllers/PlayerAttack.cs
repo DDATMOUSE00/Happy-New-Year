@@ -29,7 +29,6 @@ public class PlayerAttack : MonoBehaviour
     {
         Collider2D Playercollider = Physics2D.OverlapBox(AttackRangeBox.position, AttackRangeBoxSize, 0);
         PlayerRangeCollider = Playercollider;
-        Debug.Log(PlayerRangeCollider.tag);
     }
     private void Attack()
     {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         else
         {
             if (_instance != this) Destroy(this);
+            if (SceneManager.GetActiveScene().buildIndex == 0) Destroy(this);
         }
     }
 
