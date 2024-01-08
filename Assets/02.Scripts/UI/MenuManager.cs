@@ -15,7 +15,7 @@ public class MenuManager : MonoBehaviour
     
     void Start()
     {
-        AudioListener.volume = 0;
+
     }
 
     
