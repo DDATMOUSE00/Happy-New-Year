@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+    //private Health PlayerHealth;
+    //public bool Alive = true;
     public static GameManager Instance
     {
         get
@@ -44,5 +46,19 @@ public class GameManager : MonoBehaviour
 
     }
 
-    
+    //private void FixedUpdate()
+    //{
+    //    AliveCheck();
+    //}
+    //private void AliveCheck()
+    //{
+    //    if(PlayerHealth.health >= 0)
+    //    {
+    //        Alive = true;
+    //    }
+    //    else
+    //    {
+    //        Alive = false;
+    //    }
+    //}
 }

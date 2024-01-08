@@ -9,8 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerController _controller;
     private Vector2 _movementDirection = Vector2.zero;
     private Rigidbody2D _rigidbody;
-    private bool IsGrounded = false;
-    private bool IsJumping = false;
+    public bool IsGrounded = false;
+    public bool IsJumping = false;
+    public Animator anim;
 
     [SerializeField] private Transform GroundCheck;
     [SerializeField] private LayerMask GroundLayer;
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _controller = GetComponent<PlayerController>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        anim = transform.GetChild(0).GetComponent<Animator>();
     }
     private void Start()
     {
@@ -34,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded)
         {
             IsJumping = false;
+            anim.SetBool("IsJump", false);
+        }
+        else
+        {
+            anim.SetBool("IsJump", true);
         }
     }
     private void CheckGrounded()
@@ -54,10 +61,16 @@ public class PlayerMovement : MonoBehaviour
         if (direction.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+            anim.SetBool("IsMove", true);
         }
         else if (direction.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            anim.SetBool("IsMove", true);
+        }
+        else
+        {
+            anim.SetBool("IsMove", false);
         }
     }
     private void Jump()
@@ -66,7 +79,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _rigidbody.AddForce(Vector2.up * 13, ForceMode2D.Impulse);
             IsJumping = true;
+            anim.SetBool("IsJump", true);
         }
         Debug.Log("OnJump2" + ToString());
     }
+
 }
