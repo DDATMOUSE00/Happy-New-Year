@@ -4552,7 +4552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2de6508b66594489002c2072e98bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 999
   slider: {fileID: 0}
 --- !u!1 &1640164198
 GameObject:
@@ -6014,7 +6014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2252968189495334559, guid: f96a33231fd698a4b95103d8d7e07066, type: 3}
       propertyPath: speed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4406805800643152215, guid: f96a33231fd698a4b95103d8d7e07066, type: 3}
       propertyPath: m_RootOrder
