@@ -34,8 +34,11 @@ public class Health : MonoBehaviour
 
         if (health <= 0)
         {
-            _anim.SetBool("IsDead", true);
-            Invoke("IsDead", 1f);
+            if (!CompareTag("Stone"))
+            {
+                _anim.SetBool("IsDead", true);
+                Invoke("IsDead", 1f);
+            } 
         }
     }
 

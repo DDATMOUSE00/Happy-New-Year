@@ -17,6 +17,7 @@ public class Stone : MonoBehaviour
         if (_health.health <= 0)
         {
             boss.castCount--;
+            Destroy(gameObject);
         }
     }
 }
