@@ -3,83 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
-
-[System.Serializable]
-public class LevelRange // 레벨 범위
-{
-    public int startLevel;  // 시작 레벨
-
-    public int endLevel;    // 끝 레벨
-
-    public int experienceCapIncrease;   // 경험치량 
-}
-
+using System.Xml.Serialization;
 
 public class Exp : MonoBehaviour
 {
-    [Header("Experience/Level")]
-    public int experience = 0;
-    public int level = 1;
-    public int experienceCap;
-
-    public List<LevelRange> levelRanges;
+    private int experience = 0;
+    private int level = 1;
+    private int MaxExperience = 10;
 
     public Slider expSlider;
-
     public TextMeshProUGUI lvTxt;
 
-    void Start()
-    {
-        experienceCap = levelRanges[0].experienceCapIncrease;
-        SetCapExp(experienceCap);
-    }
 
     private void Update()
     {
+        UpdateExp();
         lvTxt.text = "LV. " + level;
     }
 
-    public void IncreaseExperience(int amount)
+    public void GetExp(int amount)
     {
         experience += amount;
-        SetExp(experience);
-
-        LevelUpChecker();
+        ExpSetting();
     }
 
-
-    void LevelUpChecker()
+    private void ExpSetting()
     {
-        if(experience >= experienceCap)
+        if(experience >= MaxExperience)
         {
             level++;
-
-            experience -= experienceCap;
-
-            int experienceCapIncrease = 0;
-            foreach(LevelRange range in levelRanges)
-            {
-                if(level >= range.startLevel && level <= range.endLevel)
-                {
-                    experienceCapIncrease = range.experienceCapIncrease;
-                    break;
-                }
-            }
-
-            experienceCap += experienceCapIncrease;
-            SetCapExp(experienceCap);
+            experience -= MaxExperience;
+            MaxExperience += 5;
+            LevelUpPlayer();
         }
     }
-
-    public void SetCapExp(int exp)
+    private void LevelUpPlayer()
     {
-        expSlider.maxValue = exp;
-        expSlider.value = exp;
+        //플레이어 공격력, 체력 상승
     }
 
-    public void SetExp(int exp)
+    public void UpdateExp()
     {
-        expSlider.value = exp;
+        expSlider.value = experience;
+        expSlider.maxValue = MaxExperience;
     }
 }

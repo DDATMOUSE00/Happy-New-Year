@@ -6,6 +6,7 @@ public class Spell : MonoBehaviour
 {
     private Interation _inter;
     Vector3 pos = new Vector3 (1, 1, 0);
+
     private void Awake()
     {
         _inter = GetComponentInParent<Interation>();
@@ -15,8 +16,6 @@ public class Spell : MonoBehaviour
     {
         gameObject.transform.position = _inter.Player.position + pos;
     }
-
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
             if (_instance == null) _instance = value;
         }
     }
+
+    public Exp exp;
+    public int experience;
+
     private void Awake()
     {
         if (_instance == null)
@@ -36,5 +40,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    private void Update()
+    {
+        if (experience >= 1)
+        {
+            SetExp();
+        }
+    }
+
+    void SetExp()
+    {
+        exp.GetExp(experience);
+        experience = 0;
+    }
+
+
+
+
+
+
+
 }
