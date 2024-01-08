@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        _anim = GetComponent<Animator>();
+        _anim = GetComponentInChildren<Animator>();
         HitPlayer = GetComponent<HitPlayer>();
     }
 
@@ -64,19 +64,22 @@ public class Health : MonoBehaviour
 
         if (CompareTag("Player"))
         {
-            StartCoroutine(HitPlayer.InvincibilityTimer());
-            ApplyKnockback(gameObject.transform);
+            HitPlayer.InvincibilityTimer();
             IsInvincible = true;
+            Invoke("EndIsInvincible", 2f);
         }
     }
-    private void ApplyKnockback(Transform playertransform)
-    {
-        Vector2 knockbackDirection = playertransform.position - transform.position;
-        Vector2 rotatedKnockbackDirection = Quaternion.Euler(0, 0, 180) * knockbackDirection;
 
-        Rigidbody2D playerRigidbody = playertransform.GetComponent<Rigidbody2D>();
-        playerRigidbody.AddForce(rotatedKnockbackDirection * 3f, ForceMode2D.Impulse);
-    }
+    //넉백 이었던 것
+    //private void ApplyKnockback(Transform playertransform)
+    //{
+    //    Vector2 knockbackDirection = playertransform.position - transform.position;
+    //    Vector2 rotatedKnockbackDirection = Quaternion.Euler(0, 0, 180) * knockbackDirection;
+
+    //    Rigidbody2D playerRigidbody = playertransform.GetComponent<Rigidbody2D>();
+    //    playerRigidbody.AddForce(rotatedKnockbackDirection * 3f, ForceMode2D.Impulse);
+    //}
+
 
     //public void SetMaxHealth(int health)
     //{
@@ -85,13 +88,17 @@ public class Health : MonoBehaviour
     //    slider.value = health;
     //}
     
-    public void SetHealth(int health)
-    {
-        slider.value = health;
-    }
+    //public void SetHealth(int health)
+    //{
+    //    slider.value = health;
+    //}
 
     private void EndDamage()
     {
         _anim.SetBool("TakeDamage", false);
+    }
+    private void EndIsInvincible()
+    {
+        IsInvincible = false;
     }
 }

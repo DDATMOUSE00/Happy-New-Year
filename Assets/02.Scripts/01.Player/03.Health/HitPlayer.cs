@@ -7,20 +7,21 @@ public class HitPlayer : MonoBehaviour
 {
     public float knockbackForce = 3f;
     public float invincibilityTime = 4f;
+    private Health Heal;
     public SpriteRenderer playerSprite;
-    public bool IsInvincible = false;
 
-
-    public IEnumerator InvincibilityTimer()
+    public void Awake()
     {
-        if (IsInvincible)
+        Heal = GetComponent<Health>();
+    }
+
+    public void InvincibilityTimer()
+    {
+        if (Heal.IsInvincible)
         {
-            playerSprite.color = new Color(200, 0, 0, 100); 
+            playerSprite.color = new Color(200, 0, 0, 100);
         }
-
-        yield return new WaitForSecondsRealtime(invincibilityTime);
-
-        if (!IsInvincible)
+        else
         {
             playerSprite.color = new Color(255, 255, 255, 255);
         }
