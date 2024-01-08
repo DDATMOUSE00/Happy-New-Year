@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        //SetMaxHealth(health);
+        SetMaxHealth(health);
     }
 
     private void Update()
@@ -34,13 +34,13 @@ public class Health : MonoBehaviour
             _anim.SetBool("IsDead", true);
             Invoke("IsDead",1f);
         }
-
     }
 
     private void IsDead()
     {
         if (CompareTag("Enemy"))
         {
+            GameManager.Instance.experience = 1;
             Destroy(gameObject);
         }
         else
