@@ -48,7 +48,7 @@ public class PlayerAttack : MonoBehaviour
     private void AttackRange()
     {
         PlayerDMG = Random.Range(minDamage, maxDamage + 1);
-        if (PlayerRangeCollider.CompareTag("Enemy"))
+        if (PlayerRangeCollider.CompareTag("Enemy") || PlayerRangeCollider.CompareTag("Stone"))
         {
             if (PlayerRangeCollider.TryGetComponent(out Health health))
             {
